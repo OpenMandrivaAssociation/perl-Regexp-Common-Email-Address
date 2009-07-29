@@ -1,20 +1,21 @@
-%define module   Regexp-Common-Email-Address
-%define version    1.01
-%define release    %mkrel 1
+%define upstream_name    Regexp-Common-Email-Address
+%define upstream_version 1.01
 
-Name:       perl-%{module}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:    Returns a pattern for Email Addresses
-Url:        http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module/Regexp/%{module}-%{version}.tar.gz
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Regexp/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(Email::Address)
 BuildRequires: perl(Regexp::Common)
 BuildRequires: perl(Test::More)
 BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 '$RE{Email}{Address}'
@@ -23,12 +24,8 @@ BuildRoot:  %{_tmppath}/%{name}-%{version}
     further then pass it to 'Email::Address->parse()'. Don't worry, it's
     fast.
 
-
-
-
-
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -49,4 +46,3 @@ rm -rf %buildroot
 %doc Changes README
 %{_mandir}/man3/*
 %perl_vendorlib/Regexp
-
