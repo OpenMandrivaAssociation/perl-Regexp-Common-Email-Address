@@ -1,21 +1,21 @@
 %define upstream_name    Regexp-Common-Email-Address
 %define upstream_version 1.01
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    Returns a pattern for Email Addresses
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Regexp/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Returns a pattern for Email Addresses
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Regexp/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Email::Address)
-BuildRequires: perl(Regexp::Common)
-BuildRequires: perl(Test::More)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Email::Address)
+BuildRequires:	perl(Regexp::Common)
+BuildRequires:	perl(Test::More)
+BuildArch:	noarch
 
 %description
 '$RE{Email}{Address}'
@@ -28,21 +28,29 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{_mandir}/man3/*
-%perl_vendorlib/Regexp
+%{perl_vendorlib}/Regexp
+
+%changelog
+* Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 1.10.0-1mdv2010.0
++ Revision: 404355
+- rebuild using %%perl_convert_version
+
+* Mon Jul 14 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.01-1mdv2009.0
++ Revision: 235633
+- import perl-Regexp-Common-Email-Address
+
+
+* Mon Jul 14 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.01-1mdv2009.0
+- initial mdv release, generated with cpan2dist
