@@ -8,7 +8,7 @@ Release:	4
 Summary:	Returns a pattern for Email Addresses
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Regexp/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
