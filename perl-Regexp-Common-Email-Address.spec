@@ -2,14 +2,14 @@
 %define upstream_version 1.01
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 
 Summary:	Returns a pattern for Email Addresses
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Regexp/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/Regexp-Common-Email-Address
+Source0:	https://cpan.metacpan.org/authors/id/C/CW/CWEST/Regexp-Common-Email-Address-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
