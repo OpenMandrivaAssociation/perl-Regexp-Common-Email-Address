@@ -1,13 +1,14 @@
 %define upstream_name    Regexp-Common-Email-Address
+%define upstream_version 1.01
 Name:		perl-%{upstream_name}
 Version:	1.01
-Release:	6
+Release:	1
 
 Summary:	Returns a pattern for Email Addresses
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Regexp-Common-Email-Address
-Source0:	https://cpan.metacpan.org/authors/id/C/CW/CWEST/Regexp-Common-Email-Address-%{version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/C/CW/CWEST/Regexp-Common-Email-Address-1.01.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -41,13 +42,3 @@ make test
 %{_mandir}/man3/*
 %{perl_vendorlib}/Regexp
 
-%changelog
-* Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 1.10.0-1mdv2010.0
-+ Revision: 404355
-- rebuild using %1.01 Mon Jul 14 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.01-1mdv2009.0
-+ Revision: 235633
-- import perl-Regexp-Common-Email-Address
-
-
-* Mon Jul 14 2008 Guillaume Rousse <guillomovitch@mandriva.org> 1.01-1mdv2009.0
-- initial mdv release, generated with cpan2dist
