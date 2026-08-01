@@ -2,7 +2,7 @@
 %define upstream_version 1.01
 Name:		perl-%{upstream_name}
 Version:	1.01
-Release:	3
+Release:	4
 
 Summary:	Returns a pattern for Email Addresses
 License:	GPL+ or Artistic
